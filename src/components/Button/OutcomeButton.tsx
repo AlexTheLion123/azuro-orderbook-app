@@ -1,5 +1,4 @@
 'use client'
-import { useTheme } from '@/app/ThemeContext'
 import { BETS_AMOUNT_DECIMALS } from '@/constants'
 import Icons from '@/icons'
 import { compareOutcome, formatOdds } from '@/utils'
@@ -19,6 +18,7 @@ export type OutcomeProps = {
   index: number
   onSelectOutcome: () => void
   isPlaced?: boolean
+  textAbove?: boolean
 }
 
 export default function OutcomeButton(props: Readonly<OutcomeProps>) {
@@ -43,39 +43,28 @@ export default function OutcomeButton(props: Readonly<OutcomeProps>) {
     return odds ? formatOdds(odds) : odds
   }, [odds])
 
-  const {theme} = useTheme()
-
   const buttonClassName = clsx(
-    `transition rounded-lg cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50 ${className}`,
-     theme === 'dark' && 'bg-appGray-100',
-     theme === 'light' && 'bg-gray-100',
-    
-    theme === 'light' && 'bg-white border border-gray-300',
+    `flex flex-col bg-white/70 transition rounded-3xl cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50 ${className}`,
+    {
+      'bg-appGray-100': true,
+    }
   )
-  const priceClassName = clsx('font-medium font-bold', 
-    theme === 'dark' && index === 0 && "text-button-LightGreen",
-    theme === 'dark' && index === 1 && 'text-button-red',
-    theme === 'light' && index === 0 && 'text-[#1f842a]',
-    theme === 'light' && index === 1 && 'text-[#fa2929]', 
-  )
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const priceClassName = clsx('font-medium rounded-full font-bold w-full', {
+    'text-button-LightGreen': index === 0,
+    'text-button-red': index === 1,
+  })
+  const handleClick = () => {
     if (!items.some((i) => compareOutcome(i, outcome))) {
       addItem(outcome)
       changeBatchBetAmount(outcome, BETS_AMOUNT_DECIMALS)
     }
     onSelectOutcome()
-    e.stopPropagation(); // Prevent card click
   }
 
   return (
-    <div className="group p-1 flex-1 relative">
-      {text && (
-        <div className="text-center pb-1 font-light">
-          {text}
-        </div>
-      )}
+    <div className="group p-[1px] rounded-3xl flex-1 relative">
       <button
-        className={clsx(isPlaced && 'border-pink border p-2', buttonClassName, {
+        className={clsx([isPlaced && 'border-pink border'], buttonClassName, {
           'gradient-border-mask': !isPlaced,
         })}
         onClick={handleClick}
@@ -87,12 +76,12 @@ export default function OutcomeButton(props: Readonly<OutcomeProps>) {
             <div>Bet placed</div>
           </div>
         )}
-        <div className="flex justify-center w-full text-sm items-center">
-          {/* {text && (
-            <div className="lg:hidden">
-              {text}
+        <div className="flex justify-between w-full text-sm gap-2">
+          {text && (
+            <div>
+              <div className="font-semibold">{text}</div>
             </div>
-          )} */}
+          )}
           <p className={priceClassName}>
             {isOddsFetching ? '--' : `${formattedOdds.toFixed(2)}¢`}
           </p>

@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-root, html, body {
+body {
   font-family: Inter, sans-serif;
-  height: 100vh;
-  margin: 0;
 }
 
 @layer utilities {
@@ -15,17 +13,8 @@ root, html, body {
 }
 /* Add these classes to your globals.css */
 body.light {
-  background-color: #f8f8f8; /* Light background color */
+  background-color: #dedede; /* Light background color */
   color: #000000; /* Light text color */
-}
-
-.navbar-button-light {
-  background-color: #3d67ff
-}
-
-h1, p {
-  margin: 0;
-  padding: 0;
 }
 
 body.dark {
@@ -41,7 +30,7 @@ body.dark {
 
 .gradient-border-mask {
   position: relative;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .gradient-border-mask::before {
@@ -112,8 +101,8 @@ body.dark {
 
 /* Webkit-based browsers */
 ::-webkit-scrollbar {
-  width: 10px; /* Thinner scrollbar */
-  height: 10px; /* Thinner horizontal scrollbar */
+  width: 2px; /* Thinner scrollbar */
+  height: 2px; /* Thinner horizontal scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
@@ -148,56 +137,4 @@ input[type='number']::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield;
-}
-
-
-/* Tooltip container */
-.tooltip-container {
-  position: relative;
-  display: inline-block;
-}
-
-/* Tooltip text */
-.tooltip-text {
-  position: absolute;
-  background-color: rgba(17, 24, 39, 1); /* Tailwind's bg-gray-900 with 90% opacity */
-  color: #fff;
-  text-align: center;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 0.875rem; /* Tailwind's text-sm */
-  width: max-content;
-  font-weight: normal;
-  white-space: nowrap;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tailwind's shadow-lg */
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  transform: translateX(-50%);
-  bottom: 150%; /* Position above the element */
-  left: 50%;    /* Center horizontally */
-  z-index: 9999;
-
-  max-width: 400px; /* Adjust this to your desired width */
-  word-wrap: break-word; /* Break long words */
-  word-break: break-word; /* Break text to prevent overflow */
-  white-space: normal; /* Allow text to wrap */
-}
-
-/* Tooltip arrow */
-.tooltip-text::after {
-  content: '';
-  position: absolute;
-  top: 100%; /* Arrow at the bottom of the tooltip */
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: rgba(17, 24, 39, 0.9) transparent transparent transparent;
-}
-
-/* Show tooltip on hover */
-.tooltip-container:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
 }

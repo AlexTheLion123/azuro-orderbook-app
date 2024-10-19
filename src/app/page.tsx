@@ -16,7 +16,7 @@ export default function GamesPage() {
 
   return (
     <div className="lg:w-[65vw]">
-      <div className="mb-2 w-full">
+      <div className="mb-2">
         <LeaguesTag />
       </div>
       {isNoData && (
@@ -24,7 +24,7 @@ export default function GamesPage() {
           <NoData />
         </div>
       )}
-      <div className="flex flex-col overflow-y-auto lg:max-h-[85vh] p-1">
+      <div className="flex flex-col gap-4 overflow-y-auto lg:max-h-[85vh]">
         {gamesLoading ? (
           <SkeletonArray length={8} />
         ) : (
@@ -32,7 +32,11 @@ export default function GamesPage() {
           // games?.map((game) => <GameCard key={game.id} game={game} />)
 
           games?.map((game) => {
-            return breakpoints.isXs? <GameCard key={game.id} game={game} />: <GameCardList key={game.id} game={game} />
+            return breakpoints.isSm ? (
+              <GameCard key={game.id} game={game} />
+            ) : (
+              <GameCardList key={game.id} game={game} />
+            )
           })
         )}
       </div>

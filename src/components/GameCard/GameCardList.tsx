@@ -17,7 +17,6 @@ import { useCallback, useContext, useMemo } from 'react'
 import { Address } from 'viem'
 import { useAccount } from 'wagmi'
 import Participant from './Participant'
-import { useRouter } from 'next/navigation'
 
 export type GameCardListProps = {
   className?: string
@@ -28,7 +27,7 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
   const { className, game } = props
   const { gameId, league, startsAt, sport, participants, status } = game
   const { isGameInLive } = useGame({ gameId: game.gameId })
-  const router = useRouter()
+
   const formattedStartAt = useMemo(() => formatTime(startsAt), [startsAt])
 
   // Get the game status and active markets
@@ -42,7 +41,8 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
     gameStatus,
   })
 
-  const { outcomeSelected, setOutcomeSelected: onSelectOutcome } = useContext(ExploreContext)
+  const { outcomeSelected, setOutcomeSelected: onSelectOutcome } =
+    useContext(ExploreContext)
   const { address } = useAccount()
   const { bets } = usePrematchBets({
     filter: {
@@ -66,38 +66,26 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
   )
   const { theme } = useTheme()
 
-  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Check if the click was on a button, if yes, don't trigger navigation
-    const target = e.target as HTMLElement;
-    if (!target.closest('button')) {
-      router.push(`/event/${gameId}`);  // Change to your new page path
-    }
-  };
+  const buttonClassName = 'rounded-xl max-w-[100px]'
 
   return (
-    <div>
+    <Link href={`/event/${gameId}`}>
       <div
         className={clsx(
           'p-[15px] h-full',
           className,
-          'mb-1 rounded-lg min-h-[100px]',
-          theme === 'dark' ? 'bg-[#262a31]' : 'bg-white',
-          'max-lg:grid max-lg:auto-rows-auto max-lg:grid-cols-[3fr_1fr_2fr_1fr_2fr]',
-          'grid auto-rows-auto grid-cols-[3fr_1fr_2fr_1fr_2fr]',
-          'max-xl:grid max-xl:auto-rows-auto max-xl:grid-cols-[3fr_1fr_1fr_2fr_3fr]',
-          'max-md:grid max-md:auto-rows-auto max-md:grid-cols-[3fr_1fr_1fr_2fr_3fr]',
-          // max-xl:hidden max-lg:flex max-md:hidden
-          'gradient-border-mask hover:border-3',
-          'hover:cursor-pointer',
-          {
-            'shadow-sm shadow-black/20': theme === 'light'
-          }
+          'mb-1 rounded-2xl min-h-[100px]',
+          theme === 'dark'
+            ? 'bg-[#262a31]'
+            : 'bg-gradient-to-b from-purple-500/30 to-white', // Change based on the theme
+          'grid auto-rows-auto grid-cols-[2fr_1fr_2fr_1fr_2fr]',
+          // 'lg:grid-cols-5', // Keep the desktop grid layout
+          'gradient-border-mask border border-purple-600 hover:border-3' // blueish border on hover
         )}
-        onClick={handleCardClick}
       >
         <div className="col-start-1 row-start-2 col-span-2 flex flex-col flex-1">
-          <Participant {...participants[0]} className="flex-row" size={'xs'}/>
-          <Participant {...participants[1]} className="flex-row" size={'xs'}/>
+          <Participant {...participants[0]} className="flex-row" size={'xs'} />
+          <Participant {...participants[1]} className="flex-row" size={'xs'} />
         </div>
 
         <div className="col-start-1 row-start-3 text-[10px] font-bold flex h-6 gap-2 items-center">
@@ -107,16 +95,16 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
           </div>
         </div>
 
-        <div className="row-start-2 col-start-2 flex items-center max-xl:hidden max-lg:flex max-md:hidden">
+        <div className="row-start-2 col-start-2 flex items-center justify-end">
           {markets[1]?.outcomeRows[0].length < 3 && markets[1]?.name}
         </div>
-        <div className="row-start-1 col-start-3 flex justify-around items-center max-xl:hidden max-lg:flex max-md:hidden">
+        <div className="row-start-1 col-start-3 flex justify-around items-center">
           {markets[1]?.outcomeRows[0].length < 3 &&
             markets[1]?.outcomeRows[0].map((outcome, index) => (
               <div key={index}>{outcome.selectionName}</div>
             ))}
         </div>
-        <div className="row-start-2 col-start-3 flex justify-around items-center max-xl:hidden max-lg:flex max-md:hidden">
+        <div className="row-start-2 col-start-3 flex justify-around items-center">
           {markets[1]?.outcomeRows[0].length < 3 &&
             markets[1]?.outcomeRows[0].map((outcome, index) => (
               <div>
@@ -127,12 +115,14 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
                   outcome={outcome}
                   onSelectOutcome={() => onSelectOutcome(outcome)}
                   isPlaced={checkIsBetPlaced(outcome)}
+                  textAbove={true}
+                  className={buttonClassName}
                 />
               </div>
             ))}
         </div>
 
-        <div className="row-start-2 col-start-4 flex items-center pr-4 font-normal">
+        <div className="row-start-2 col-start-4 flex items-center justify-end pr-4">
           {markets[0]?.name}
         </div>
         <div className="row-start-1 col-start-5 flex justify-around items-center">
@@ -150,6 +140,8 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
                 outcome={outcome}
                 onSelectOutcome={() => onSelectOutcome(outcome)}
                 isPlaced={checkIsBetPlaced(outcome)}
+                textAbove={true}
+                className={buttonClassName}
               />
             </div>
           ))}
@@ -159,6 +151,6 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
           {markets.length} {'>'}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
