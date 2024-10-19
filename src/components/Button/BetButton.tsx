@@ -5,7 +5,7 @@ import {
   showNotification,
 } from '@/components/Noti'
 import { ExploreContext } from '@/contexts'
-import { EVENT, compareOutcome } from '@/utils'
+import { EVENT } from '@/utils'
 import {
   BetslipItem,
   useBaseBetslip,
@@ -20,8 +20,8 @@ import type { Address } from 'viem'
 import classes from './styles/BetButton.module.css'
 
 export type BetButtonProps = {
-  setIsLoading?: (isLoading: boolean) => void,
-  item: BetslipItem,
+  setIsLoading?: (isLoading: boolean) => void
+  item: BetslipItem
 }
 
 const BetButton = (props: Readonly<BetButtonProps>) => {
@@ -166,7 +166,7 @@ const BetButton = (props: Readonly<BetButtonProps>) => {
 
   if (!isRightNetwork) {
     return (
-      <div className="mt-6 py-3.5 text-center bg-gradient-to-r from-red-600 to-red-800 rounded-2xl">
+      <div className="mt-6 py-3.5 text-center bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl">
         Switch network to <b>{appChain.name}</b> in your wallet
       </div>
     )
