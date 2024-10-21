@@ -100,7 +100,7 @@ const CustomConnectButton = () => {
                       {account.displayBalance}
                     </span>
                   )}
-                  <div className="bg-gradient-to-r from-purple-500 to-blue-500 min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-500 min-w-[26px] min-h-[26px] rounded-full flex items-center justify-center">
                     <CustomAvatar address={account.address} size={26} />
                   </div>
                   {breakpoints.isMinLg && (
