@@ -22,18 +22,25 @@ const Button: React.FC<ButtonProps> = (props) => {
       onClick={onClick}
       className={clsx(
         'flex items-center gap-2 p-2 cursor-pointer font-bold whitespace-nowrap rounded-md mr-1',
-        theme === 'dark' && isSelected && "bg-gradient-to-l from-[#ff65a6] via-[#b37ed3] to-[#5e64eb]",
+        theme === 'dark' &&
+          isSelected &&
+          'bg-gradient-to-l from-[#ff65a6] via-[#b37ed3] to-[#5e64eb]',
         //theme === 'dark' && !isSelected,
-        isSelected && theme === 'light' && 'bg-gradient-to-l from-blue-500 to-blue-700 text-white',
+        isSelected &&
+          theme === 'light' &&
+          'bg-gradient-to-l from-blue-500 to-blue-700 text-white',
         !isSelected && theme === 'light' && 'text-[#1d1717] bg-gray-200',
-        !isSelected && theme === 'dark' && 'bg-[#FFFFFF0D]',
+        !isSelected && theme === 'dark' && 'bg-[#FFFFFF0D]'
       )}
     >
       <span>{title}</span>
-      <span className={clsx("px-2 py-1 rounded-md text-[10px] max-lg:hidden",
-        theme === 'dark' && 'bg-slate-400 text-gray-800',
-        theme === 'light' && 'white'
-      )}>
+      <span
+        className={clsx(
+          'px-2 py-1 rounded-md text-[10px] max-lg:hidden',
+          theme === 'dark' && 'bg-slate-400 text-gray-800',
+          theme === 'light' && 'white'
+        )}
+      >
         {count}
       </span>
     </button>
@@ -62,7 +69,7 @@ export default function LeaguesTag() {
   }, [navigation, sportSlug])
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center flex-wrap overflow-auto">
       {/* <div className="capitalize text-[21px] font-bold">{sportSlug}</div> */}
       <div
         className={clsx(

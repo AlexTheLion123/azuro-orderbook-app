@@ -15,15 +15,19 @@ type ButtonProps = {
 }
 const Button: React.FC<ButtonProps> = (props) => {
   const { sportId, title, count, isSelected, onClick } = props
-  const {theme} = useTheme()
+  const { theme } = useTheme()
 
   return (
     <button
       onClick={onClick}
       className={clsx(
         'flex items-center gap-1 cursor-pointer whitespace-nowrap lg:w-full lg:justify-between w-full rounded-lg xl:hover:border xl:hover:border-gray-300',
-        isSelected && theme === 'dark' && "bg-gradient-to-l from-[#ff65a6] via-[#b37ed3] to-[#5e64eb] rounded-md",
-        isSelected && theme === 'light' && 'bg-gradient-to-l from-blue-500 to-blue-700 text-white',
+        isSelected &&
+          theme === 'dark' &&
+          'bg-gradient-to-l from-[#ff65a6] via-[#b37ed3] to-[#5e64eb] rounded-md',
+        isSelected &&
+          theme === 'light' &&
+          'bg-gradient-to-l from-blue-500 to-blue-700 text-white',
         !isSelected && theme === 'light' && 'text-[#1d1717] bg-gray-100',
         !isSelected && theme === 'dark' && 'bg-[#FFFFFF0D]',
         'p-2 max-lg:m-0.5'
@@ -35,15 +39,22 @@ const Button: React.FC<ButtonProps> = (props) => {
         ) : (
           <span className="invisible">&nbsp;&nbsp;</span>
         )}
-        <span className={clsx(
-          theme === 'dark' && 'font-medium',
-          theme === 'light' && 'lg:font-semibold font-normal'
-        )}>{title}</span>
+        <span
+          className={clsx(
+            theme === 'dark' && 'font-medium',
+            theme === 'light' && 'lg:font-semibold font-normal'
+          )}
+        >
+          {title}
+        </span>
       </div>
-      <span className={clsx("p-1 px-2 rounded-md  text-xs max-xl:hidden font-bold",
+      <span
+        className={clsx(
+          'p-1 px-2 rounded-md  text-xs max-xl:hidden font-bold',
           theme === 'dark' && 'bg-slate-400 text-gray-800',
           theme === 'light' && 'white'
-      )}>
+        )}
+      >
         {count}
       </span>
     </button>
@@ -75,10 +86,13 @@ export default function AllSportsTag() {
     <div className="flex items-center pb-2 gap-4 w-full">
       <div
         className={clsx(
-          'flex lg:flex-col relative items-center snap-x snap-mandatory overflow-x-auto w-[100%]',
+          'flex lg:flex-col relative items-center snap-x snap-mandatory overflow-x-auto w-[100%]'
           // 'no-scrollbar'
         )}
       >
+        <h1 className="text-left font-bold text-xl w-full pl-2 pt-2">
+          Categories
+        </h1>
         {categories?.map((category, index) => {
           if (!category) return null
           return (
@@ -86,23 +100,25 @@ export default function AllSportsTag() {
               <div className="w-full px-3 py-4 font-bold text-lg max-lg:hidden capitalize">
                 {category.sports && category.name}
               </div>
-              {category.sports?.map((item) => {
-                if (!item) return null // Skip undefined items
+              <div className="flex flex-col gap-1">
+                {category.sports?.map((item) => {
+                  if (!item) return null // Skip undefined items
 
-                const { sportId, name, games, slug } = item
-                const isSelected = sportSlug === slug
+                  const { sportId, name, games, slug } = item
+                  const isSelected = sportSlug === slug
 
-                return (
-                  <Button
-                    key={sportId}
-                    sportId={sportId}
-                    title={name}
-                    count={games?.length ?? 0}
-                    isSelected={isSelected}
-                    onClick={() => handleClick(slug)}
-                  />
-                )
-              })}
+                  return (
+                    <Button
+                      key={sportId}
+                      sportId={sportId}
+                      title={name}
+                      count={games?.length ?? 0}
+                      isSelected={isSelected}
+                      onClick={() => handleClick(slug)}
+                    />
+                  )
+                })}
+              </div>
             </div>
           )
         })}

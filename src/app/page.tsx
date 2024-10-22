@@ -15,8 +15,9 @@ export default function GamesPage() {
   const breakpoints = useBreakpoints()
 
   return (
-    <div className="lg:w-[65vw]">
-      <div className="mb-2">
+    <div className="w-full py-4 px-8">
+      <div className="flex gap-2">
+        <span className="py-4 font-bold">Selected:</span>
         <LeaguesTag />
       </div>
       {isNoData && (

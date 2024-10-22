@@ -26,7 +26,7 @@ export default function MainContent({
             <main className="max-md:mt-2 flex flex-col max-md:transparent lg:w-[65vw] h-full">
               {children}
             </main>
-            <div className="lg:w-[20vw] max-h-full flex flex-col overflow-hidden max-lg:hidden">
+            <div className="lg:w-[20vw] py-8 max-h-full flex flex-col overflow-hidden max-lg:hidden">
               <ClientBetInfo />
               <ClientBetSlipButtonContent />
             </div>
