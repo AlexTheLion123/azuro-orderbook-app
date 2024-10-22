@@ -107,7 +107,12 @@ const Content: React.FC<ContentProps> = ({ game, isGameInLive }) => {
             : 'bg-gray-200 border border-gray-300 border-1'
         )}
       >
-        <div className="bg-gradient-to-r from-green-700 to-red-700 rounded-t-lg py-3">
+        <div
+          className={clsx(
+            'bg-gradient-to-r from-blue-600 via-gray-500 to-blue-600 rounded-t-lg py-3',
+            theme === 'dark' ? 'text-black' : ''
+          )}
+        >
           <GameInfo game={game} />
         </div>
         <div className="p-3 rounded-lg h-full flex flex-col items-center">
