@@ -27,7 +27,7 @@ export default function GameCard(props: Readonly<GameCardProps>) {
             className,
             'p-4 bg-[#262a31] rounded-lg min-h-[190px] flex flex-col gap-2 h-full',
             theme === 'dark'
-              ? 'bg-[#262a31] hover:from-[#658eff] hover: hover:to-[#5e64eb]'
+              ? 'bg-[#262a31] hover:from-[#658eff] hover: hover:to-[#c2d2ff]'
               : 'bg-white shadow-sm shadow-black/20'
           )}
         >

@@ -79,7 +79,7 @@ const Logo = (props: Readonly<IconProps>) => {
         >
           <stop offset="0.02" stopColor="#658eff" />
           <stop offset="0.5" stopColor="#B37ED3" />
-          <stop offset="1" stopColor="#5E64EB" />
+          <stop offset="1" stopColor="#c2d2ff" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_263_6944"
@@ -91,7 +91,7 @@ const Logo = (props: Readonly<IconProps>) => {
         >
           <stop offset="0.02" stopColor="#658eff" />
           <stop offset="0.5" stopColor="#B37ED3" />
-          <stop offset="1" stopColor="#5E64EB" />
+          <stop offset="1" stopColor="#c2d2ff" />
         </linearGradient>
         <clipPath id="clip0_263_6944">
           <rect width="46.678" height="54" fill="white" />

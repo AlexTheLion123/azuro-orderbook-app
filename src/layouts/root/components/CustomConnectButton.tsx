@@ -59,7 +59,7 @@ const CustomConnectButton = () => {
                     className="rounded-lg text-sm font-normal px-4 py-2 text-white"
                     style={{
                       background:
-                        'linear-gradient(253.66deg, #658eff 12.88%, #B37ED3 50.05%, #5E64EB 88.76%)',
+                        'linear-gradient(253.66deg, #658eff 12.88%, #B37ED3 50.05%, #c2d2ff 88.76%)',
                     }}
                   >
                     <div className="flex items-center gap-2">

@@ -53,7 +53,7 @@
 }
 
 .btn.textGradient {
-  background-image: linear-gradient(to left, #658eff, #b37ed3, #5e64eb);
+  background-image: linear-gradient(to left, #658eff, #b37ed3, #c2d2ff);
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -113,7 +113,7 @@
   @apply relative text-transparent font-bold bg-clip-text text-white;
 
   border: 2px solid transparent;
-  background-image: linear-gradient(to left, #658eff, #b37ed3, #5e64eb);
+  background-image: linear-gradient(to left, #658eff, #b37ed3, #c2d2ff);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -121,7 +121,7 @@
 .btn.outlineGradient {
   position: relative;
   z-index: 1;
-  background-image: linear-gradient(to left, #658eff, #b37ed3, #5e64eb);
+  background-image: linear-gradient(to left, #658eff, #b37ed3, #c2d2ff);
   padding: 1px !important;
   color: white;
 }

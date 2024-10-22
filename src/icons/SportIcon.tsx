@@ -5,7 +5,7 @@ export const IconGradient = () => (
     <linearGradient id="football-gradient" x2="0%" y2="50%" x1="100%" y1="50%">
       <stop offset="12.88%" stopColor="#658eff" />
       <stop offset="50.05%" stopColor="#B37ED3" />
-      <stop offset="88.76%" stopColor="#5E64EB" />
+      <stop offset="88.76%" stopColor="#c2d2ff" />
     </linearGradient>
   </defs>
 )
