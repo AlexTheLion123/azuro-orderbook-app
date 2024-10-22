@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         'flex items-center gap-1 cursor-pointer whitespace-nowrap lg:w-full lg:justify-between w-full rounded-lg xl:hover:border xl:hover:border-gray-300',
         isSelected &&
           theme === 'dark' &&
-          'bg-gradient-to-l from-[#ff65a6] via-[#b37ed3] to-[#5e64eb] rounded-md',
+          'bg-gradient-to-l from-[#6581ff]  to-[#5e64eb] rounded-md',
         isSelected &&
           theme === 'light' &&
           'bg-gradient-to-l from-blue-500 to-blue-700 text-white',

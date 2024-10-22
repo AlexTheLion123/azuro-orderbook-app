@@ -23,7 +23,7 @@ const Sport = (props: Readonly<IconProps>) => {
           y2="19.9488"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.02" stopColor="#FF65A6" />
+          <stop offset="0.02" stopColor="#658eff" />
           <stop offset="0.5" stopColor="#B37ED3" />
           <stop offset="1" stopColor="#5E64EB" />
         </linearGradient>

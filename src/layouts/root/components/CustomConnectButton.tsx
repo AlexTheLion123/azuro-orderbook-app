@@ -28,7 +28,7 @@ const CustomAvatar: AvatarComponent = ({ address, size }) => {
 
 const CustomConnectButton = () => {
   const breakpoints = useBreakpoints()
-  const {theme} = useTheme()
+  const { theme } = useTheme()
   return (
     <ConnectButton.Custom>
       {({
@@ -59,17 +59,13 @@ const CustomConnectButton = () => {
                     className="rounded-lg text-sm font-normal px-4 py-2 text-white"
                     style={{
                       background:
-                        'linear-gradient(253.66deg, #FF65A6 12.88%, #B37ED3 50.05%, #5E64EB 88.76%)',
+                        'linear-gradient(253.66deg, #658eff 12.88%, #B37ED3 50.05%, #5E64EB 88.76%)',
                     }}
                   >
                     <div className="flex items-center gap-2">
                       <Icons name="connectWallet" />
-                      <p className="max-sm:hidden">
-                        Connect wallet
-                      </p>
-                      <p className="sm:hidden">
-                        Connect
-                      </p>
+                      <p className="max-sm:hidden">Connect wallet</p>
+                      <p className="sm:hidden">Connect</p>
                     </div>
                   </button>
                 )
@@ -91,8 +87,9 @@ const CustomConnectButton = () => {
                 <button
                   onClick={openAccountModal}
                   type="button"
-                  className={clsx("flex items-center bg-[#FFFFFF0D] rounded-xl px-4 py-2 gap-3 whitespace-nowrap",
-                    theme === 'dark' ? 'text-white': 'text-gray-800'
+                  className={clsx(
+                    'flex items-center bg-[#FFFFFF0D] rounded-xl px-4 py-2 gap-3 whitespace-nowrap',
+                    theme === 'dark' ? 'text-white' : 'text-gray-800'
                   )}
                 >
                   {!breakpoints.isXs && (
@@ -104,9 +101,12 @@ const CustomConnectButton = () => {
                     <CustomAvatar address={account.address} size={26} />
                   </div>
                   {breakpoints.isMinLg && (
-                    <span className={clsx("font-medium text-xs whitespace-nowrap",
-                      theme === 'dark' ? "text-[#FFFFFF99]" : 'text-gray-800'
-                    )}>
+                    <span
+                      className={clsx(
+                        'font-medium text-xs whitespace-nowrap',
+                        theme === 'dark' ? 'text-[#FFFFFF99]' : 'text-gray-800'
+                      )}
+                    >
                       {account.displayName}
                     </span>
                   )}

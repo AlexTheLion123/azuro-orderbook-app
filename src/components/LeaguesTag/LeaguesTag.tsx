@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         'flex items-center gap-2 p-2 cursor-pointer font-bold whitespace-nowrap rounded-md mr-1',
         theme === 'dark' &&
           isSelected &&
-          'bg-gradient-to-l from-[#ff65a6] via-[#b37ed3] to-[#5e64eb]',
+          'bg-gradient-to-l from-[#658eff]  to-[#5e64eb]',
         //theme === 'dark' && !isSelected,
         isSelected &&
           theme === 'light' &&

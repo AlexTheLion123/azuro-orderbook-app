@@ -83,7 +83,7 @@ const Content: React.FC<ContentProps> = ({ game, isGameInLive }) => {
   const { theme } = useTheme()
 
   return (
-    <div className="flex flex-col gap-2 h-full overflow-hidden">
+    <div className="flex flex-col gap-2 px-4 h-full overflow-hidden">
       <BetSuccessNoti />
       <div
         className={clsx(

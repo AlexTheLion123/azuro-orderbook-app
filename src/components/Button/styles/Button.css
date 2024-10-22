@@ -53,19 +53,19 @@
 }
 
 .btn.textGradient {
-  background-image: linear-gradient(to left, #ff65a6, #b37ed3, #5e64eb);
+  background-image: linear-gradient(to left, #658eff, #b37ed3, #5e64eb);
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
 
 .btn.outlinePrimary {
-  @apply border border-[#FF65A6] text-[#FF65A6];
+  @apply border border-[#658eff] text-[#658eff];
 }
 
 /* Color Variants */
 .btn.primary {
-  @apply bg-[#FF65A6] text-white;
+  @apply bg-[#658eff] text-white;
 }
 
 .btn.secondary {
@@ -113,7 +113,7 @@
   @apply relative text-transparent font-bold bg-clip-text text-white;
 
   border: 2px solid transparent;
-  background-image: linear-gradient(to left, #ff65a6, #b37ed3, #5e64eb);
+  background-image: linear-gradient(to left, #658eff, #b37ed3, #5e64eb);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -121,7 +121,7 @@
 .btn.outlineGradient {
   position: relative;
   z-index: 1;
-  background-image: linear-gradient(to left, #ff65a6, #b37ed3, #5e64eb);
+  background-image: linear-gradient(to left, #658eff, #b37ed3, #5e64eb);
   padding: 1px !important;
   color: white;
 }
@@ -134,7 +134,7 @@
   stroke-dashoffset: 0;
   animation: dash 1.5s ease-in-out infinite;
   stroke-dasharray: 126.92;
-  stroke: #ff65a6;
+  stroke: #658eff;
   transform-origin: center;
   transition: stroke-dashoffset 0.35s;
 }

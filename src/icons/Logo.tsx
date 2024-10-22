@@ -51,7 +51,7 @@ const Logo = (props: Readonly<IconProps>) => {
           fillRule="evenodd"
           clipRule="evenodd"
           d="M19.7428 0C21.8263 3.74072 20.54 6.4661 17.6232 8.71054C19.9104 8.14052 22.2792 7.91786 24.6344 8.0381C25.9388 4.45324 24.3037 1.77239 19.7474 0L19.7428 0Z"
-          fill="#FF65A6"
+          fill="#658eff"
         />
         <path
           fillRule="evenodd"
@@ -77,7 +77,7 @@ const Logo = (props: Readonly<IconProps>) => {
           y2="63.866"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.02" stopColor="#FF65A6" />
+          <stop offset="0.02" stopColor="#658eff" />
           <stop offset="0.5" stopColor="#B37ED3" />
           <stop offset="1" stopColor="#5E64EB" />
         </linearGradient>
@@ -89,7 +89,7 @@ const Logo = (props: Readonly<IconProps>) => {
           y2="36.5337"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.02" stopColor="#FF65A6" />
+          <stop offset="0.02" stopColor="#658eff" />
           <stop offset="0.5" stopColor="#B37ED3" />
           <stop offset="1" stopColor="#5E64EB" />
         </linearGradient>
