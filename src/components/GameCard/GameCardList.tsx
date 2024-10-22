@@ -77,10 +77,10 @@ export default function GameCardList(props: Readonly<GameCardListProps>) {
           'mb-1 rounded-2xl min-h-[100px]',
           theme === 'dark'
             ? 'bg-[#262a31]'
-            : 'bg-gradient-to-b from-purple-500/30 to-white', // Change based on the theme
+            : 'bg-gradient-to-b from-blue-500/30 to-white', // Change based on the theme
           'grid auto-rows-auto grid-cols-[2fr_1fr_2fr_1fr_2fr]',
           // 'lg:grid-cols-5', // Keep the desktop grid layout
-          'gradient-border-mask border border-purple-600 hover:border-3' // blueish border on hover
+          'gradient-border-mask border border-blue-600 hover:border-3' // blueish border on hover
         )}
       >
         <div className="col-start-1 row-start-2 col-span-2 flex flex-col flex-1">
