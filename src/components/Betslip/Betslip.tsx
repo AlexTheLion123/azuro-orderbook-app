@@ -17,6 +17,7 @@ import { PrematchBetsDocument } from '@azuro-org/toolkit'
 import { useConnectModal } from '@rainbow-me/rainbowkit'
 import { use, useContext, useState } from 'react'
 import { useAccount } from 'wagmi'
+import Loader from '../Loader'
 import BetslipCard from './BetslipCard'
 import { errorPerDisableReason } from './errors'
 
@@ -107,7 +108,7 @@ export function BetslipContent({
           <div className="flex items-center mt-4 mb-2">
             <div className="flex-1">Bet Amount</div>
             {isBalanceFetching ? (
-              <div>Loading...</div>
+              <Loader />
             ) : (
               balance !== undefined && (
                 <div className="px-2 bg-appGray-50 py-1 rounded-xl">
@@ -173,7 +174,7 @@ export function BetslipContent({
               <span className="text-md ">Relayer fee:</span>
               <span className="text-md font-semibold">
                 {isRelayerFeeLoading ? (
-                  <>Loading...</>
+                  <Loader />
                 ) : (
                   <>{formattedRelayerFeeAmount}</>
                 )}

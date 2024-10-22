@@ -17,6 +17,7 @@ import {
 import clsx from 'clsx'
 import { useContext, useEffect, useMemo } from 'react'
 import type { Address } from 'viem'
+import Loader from '../Loader'
 import classes from './styles/BetButton.module.css'
 
 export type BetButtonProps = {
@@ -159,7 +160,7 @@ const BetButton = (props: Readonly<BetButtonProps>) => {
   const title = useMemo(() => {
     if (isPending) return 'Waiting for approval'
     if (isProcessing) return 'Processing...'
-    if (isLoading) return 'Loading...'
+    if (isLoading) return <Loader />
     if (isApproveRequired) return 'Approve'
     return 'Place Bet'
   }, [isPending, isProcessing, isLoading, isApproveRequired])
